@@ -16,6 +16,7 @@ Data extraction component that sources engine maintenance data from Redshift and
   - Starfish
   - Spotfire (visualization Tool similar to Tableau or PowerBI)
 
+# SQL Code
 -- define all columns in the final table, c = CAS + CP union and t = Commit Table
 Select
 	c.part_number as PN,

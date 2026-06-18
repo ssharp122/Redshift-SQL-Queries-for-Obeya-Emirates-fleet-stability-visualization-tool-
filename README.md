@@ -2,19 +2,19 @@
 # Purpose: 
 Data extraction component that sources engine maintenance data from Redshift and prepares Atlas Data Lakes datasets for    downstream transformation pipelines in Dataiku for ingestion into Redshift Enterprise level historical data tables
 # Data Flow:
-  Amazon Redshift and Atlas Data Lakes
-  SQL Query as shown below in Dataiku
-  Dataiku transformations combining Atlas Data with Smartsheet manual sheets for complete weekly data tables
-  Ingestion into redshift historical reporting tables via starfish application
-  Enterprise Level Redshift Historical data tables
-  Spotfire visualization tool
+  1. Amazon Redshift and Atlas Data Lakes
+  2. SQL Query as shown below in Dataiku
+  3. Dataiku transformations combining Atlas Data with Smartsheet manual sheets for complete weekly data tables
+  4. Ingestion into redshift historical reporting tables via starfish application
+  5. Enterprise Level Redshift Historical data tables
+  6. Spotfire visualization tool
 # Technologies
-  Amazon Redshift
-  SQL
-  Atlas Data Lakes
-  Dataiku
-  Starfish
-  Spotfire (visualization Tool similar to Tableau or PowerBI)
+  - Amazon Redshift
+  - SQL
+  - Atlas Data Lakes
+  - Dataiku
+  - Starfish
+  - Spotfire (visualization Tool similar to Tableau or PowerBI)
 
 -- define all columns in the final table, c = CAS + CP union and t = Commit Table
 Select

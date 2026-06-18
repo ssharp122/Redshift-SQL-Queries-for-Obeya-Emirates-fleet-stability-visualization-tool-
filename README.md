@@ -17,6 +17,8 @@ Data extraction component that sources engine maintenance data from Redshift and
   - Spotfire (visualization Tool similar to Tableau or PowerBI)
 
 # SQL Extraction Query
+- Schema names, table names, and business-specific identifiers have been generalized to protect propreitary information
+
 -- define all columns in the final table, c = CAS + CP union and t = Commit Table
 Select
 	c.part_number as PN,
@@ -38,7 +40,7 @@ Select
 From (
 	-- CAS
 	select part_number, receive_date, quantity_received, source_system, source_name, part_number as part_description, source_code as destination_org
-	from (Confidential Schema and Table Name 1)
+	from source_Schema.delivery_table_1
 	where receive_date is not null
 	and receive_date >= current_date - 7
 	and destination_org in ('CPL', 'CSO')
@@ -47,13 +49,13 @@ From (
 
 	-- CP
 	select part_number, received_date::date as receive_date, quantity_received, source_system, source_name, part_description, destination_org
-	from (Confidential Schema and Table Name 2) 
+	from  source_Schema.delivery_table_2
 	where receive_date is not null 
 	and receive_date >= current_date - 7
 	and destination_org in ('CPL', 'CSO')) c
 
 --Join c and t together to final table adding commit data
-left join (Confidential Schema and Table Name 3) t
+left join source_Schema.commit_table t
 	on c.part_number = t.part_number
 	and t.order_plant_code in ('CPL', 'CSO')
 	and t.metric_name = 'COMMIT' 

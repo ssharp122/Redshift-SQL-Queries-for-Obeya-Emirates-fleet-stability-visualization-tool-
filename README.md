@@ -38,7 +38,7 @@ Select
 From (
 	-- CAS
 	select part_number, receive_date, quantity_received, source_system, source_name, part_number as part_description, source_code as destination_org
-	from ia_eng.sc_logistics_cas_t
+	from (Confidential Schema and Table Name 1)
 	where receive_date is not null
 	and receive_date >= current_date - 7
 	and destination_org in ('CPL', 'CSO')
@@ -47,13 +47,13 @@ From (
 
 	-- CP
 	select part_number, received_date::date as receive_date, quantity_received, source_system, source_name, part_description, destination_org
-	from ia_eng.palantir_sc_logistics_cp 
+	from (Confidential Schema and Table Name 2) 
 	where receive_date is not null 
 	and receive_date >= current_date - 7
 	and destination_org in ('CPL', 'CSO')) c
 
 --Join c and t together to final table adding commit data
-left join ia_eng.s3_palantir_commits t
+left join (Confidential Schema and Table Name 3) t
 	on c.part_number = t.part_number
 	and t.order_plant_code in ('CPL', 'CSO')
 	and t.metric_name = 'COMMIT' 

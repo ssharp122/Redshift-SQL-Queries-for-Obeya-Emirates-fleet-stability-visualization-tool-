@@ -15,6 +15,8 @@ Data extraction component that sources engine maintenance data from Redshift and
   - Dataiku
   - Starfish
   - Spotfire (visualization Tool similar to Tableau or PowerBI)
+# Challenges Solved
+  - The Obeya visualization tool was previous an entirely manual Excel driven process with manual data extraction from    	Atlas/Redshift. This structure automates the entire process. 
 
 # SQL Extraction Query
 - Schema names, table names, and business-specific identifiers have been generalized to protect propreitary information
